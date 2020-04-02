@@ -46,7 +46,7 @@ public class Maze
         while(!done && charIndex < solutionLength)
         {
             char direction = solution.charAt(charIndex);
-            System.out.println("Location: (" + row + ", " + col 
+            System.out.println("Location: (" + row + "--" + col 
                 + "), next direction: '" + direction + "'");
             
             switch(direction)
