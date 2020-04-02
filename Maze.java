@@ -36,8 +36,8 @@ public class Maze
         System.out.print("Your solution: ");
         solution = sc.nextLine();
         
-        int currentRow = 1;
-        int currentCol = 0;
+        int row = 1;
+        int col = 0;
         boolean done = false;
         boolean solved = false;
         int charIndex = 0;
@@ -46,49 +46,49 @@ public class Maze
         while(!done && charIndex < solutionLength)
         {
             char direction = solution.charAt(charIndex);
-            System.out.println("Location: (" + currentRow + ", " + currentCol 
+            System.out.println("Location: (" + row + ", " + col 
                 + "), next direction: '" + direction + "'");
             
             switch(direction)
             {
                 case NORTH:
-                    currentRow--;
+                    row--;
                     break;
                 
                 case EAST:
-                    currentCol++;
+                    col++;
                     break;
                     
                 case SOUTH:
-                    currentRow++;
+                    row++;
                     break;
                     
                 case WEST:
-                    currentCol--;
+                    col--;
                     break;
             
                 default:
                     System.out.println("You have no idea where you're going."); // Invalid direction.
             }
             
-            if(currentRow < 0 || currentCol < 0
-                || currentRow >= grid.length || currentCol >= grid[currentRow].length)
+            if(row < 0 || col < 0
+                || row >= grid.length || col >= grid[currentRow].length)
             {
                 done = true;
                 System.out.println("You fall into the chasm of doom."); // Out of bounds.
             }
             else
             {
-                if(grid[currentRow][currentCol] == EMPTY)
+                if(grid[row][col] == Maze.EMPTY)
                 {
-                    grid[currentRow][currentCol] = VISITED;
+                    grid[row][col] = Maze.VISITED;
                 }
-                else if(grid[currentRow][currentCol] == WALL)
+                else if(grid[row][col] == Maze.WALL)
                 {
                     done = true;
                     System.out.println("*SMACK* You faceplant into concrete. It hurts...."); // Hit wall.
                 }
-                else if(grid[currentRow][currentCol] == END)
+                else if(grid[row][col] == Maze.END)
                 {
                     done = true;
                     solved = true;
