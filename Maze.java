@@ -86,7 +86,7 @@ public class Maze
                 else if(grid[currentRow][currentCol] == WALL)
                 {
                     done = true;
-                    System.out.println("You stumble blindly into a solid concrete wall."); // Hit wall.
+                    System.out.println("*SMACK* You faceplant into concrete. It hurts...."); // Hit wall.
                 }
                 else if(grid[currentRow][currentCol] == END)
                 {
